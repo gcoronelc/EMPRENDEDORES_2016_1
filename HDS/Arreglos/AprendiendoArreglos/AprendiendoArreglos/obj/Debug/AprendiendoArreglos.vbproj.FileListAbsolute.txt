@@ -1,0 +1,9 @@
+D:\HDS\Arreglos\AprendiendoArreglos\AprendiendoArreglos\bin\Debug\AprendiendoArreglos.exe.config
+D:\HDS\Arreglos\AprendiendoArreglos\AprendiendoArreglos\bin\Debug\AprendiendoArreglos.exe
+D:\HDS\Arreglos\AprendiendoArreglos\AprendiendoArreglos\bin\Debug\AprendiendoArreglos.pdb
+D:\HDS\Arreglos\AprendiendoArreglos\AprendiendoArreglos\bin\Debug\AprendiendoArreglos.xml
+D:\HDS\Arreglos\AprendiendoArreglos\AprendiendoArreglos\obj\Debug\AprendiendoArreglos.Resources.resources
+D:\HDS\Arreglos\AprendiendoArreglos\AprendiendoArreglos\obj\Debug\AprendiendoArreglos.vbproj.GenerateResource.Cache
+D:\HDS\Arreglos\AprendiendoArreglos\AprendiendoArreglos\obj\Debug\AprendiendoArreglos.exe
+D:\HDS\Arreglos\AprendiendoArreglos\AprendiendoArreglos\obj\Debug\AprendiendoArreglos.xml
+D:\HDS\Arreglos\AprendiendoArreglos\AprendiendoArreglos\obj\Debug\AprendiendoArreglos.pdb
