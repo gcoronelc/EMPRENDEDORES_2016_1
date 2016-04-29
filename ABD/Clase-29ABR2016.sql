@@ -81,7 +81,7 @@ De cada categoria se necesita saber el
 productos mas vendido.
 */
 
-alter procedure usp_007A
+alter procedure usp_007
 as
 begin
 	-- Tabla temporal de unidades vendidas por articulo
@@ -124,20 +124,63 @@ begin
 end;
 GO
 
-EXEC usp_007A;
+EXEC usp_007;
 go
 
 
 /*
 Realizar la modificación respectiva
-al procedimiento usp_007A
+al procedimiento usp_007
 para que el proceso sea de un 
 año especifico.
 */
 
+alter procedure usp_008(@Anio int)
+as
+begin
+	-- Tabla temporal de unidades vendidas por articulo
+	create table #tabla1(
+		CategoryID int null,
+		ProductID int null,
+		ProductName varchar(80) null,
+		Cant smallint null
+	);
+	-- Obtener unidades vendidas por articulo
+	insert into #tabla1(CategoryID,ProductID,ProductName,Cant)
+	select 
+		p.CategoryID, p.ProductID, 
+		p.ProductName, SUM(od.Quantity) Cant
+	from Products p
+	join [Order Details] od on p.ProductID = od.ProductID
+	join Orders o on od.OrderID = o.OrderID
+	where YEAR(o.OrderDate) = @Anio
+	group by p.CategoryID, p.ProductID,p.ProductName;
+	
+	-- Reporte previo
+	with t2 as (
+		select CategoryID, MAX(Cant) cant
+		from #tabla1
+		group by CategoryID)
+	select 
+		t1.CategoryID Categoris, 
+		t1.ProductID CodPrducto,
+		t1.ProductName NomProducto, 
+		t1.Cant CantVendida
+	from #tabla1 t1 join t2
+	on t1.CategoryID = t2.CategoryID
+	and t1.Cant = t2.Cant
+	order by 1, 2;
+end;
+GO
 
+EXEC usp_008 1996;
+go
 
-
+/*
+Hacer un procedimiento que permita
+que consultar de cada año el
+cliente que mas a comprado.
+*/
 
 
 
