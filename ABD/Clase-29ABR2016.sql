@@ -164,6 +164,7 @@ es el producto que tiene mayor stock.
 Se deben mostrar los empates.
 */
 
+-- Solución con tablas temporales
 alter procedure usp_006A
 as
 begin
@@ -187,6 +188,28 @@ begin
 end;
 
 EXEC usp_006A;
+go
+
+
+
+
+-- Solución con sub-consulta
+-- como tabla derivada
+create procedure usp_006B
+as
+begin
+	select 
+		p.CategoryID, p.ProductID, 
+		p.ProductName, p.UnitsInStock, p.UnitPrice
+	from Products p 
+	join (select CategoryID, MAX(UnitsInStock) UnitsInStock
+			from Products
+			group by CategoryID) t 
+	on p.CategoryID=t.CategoryID 
+	and p.UnitsInStock = t.UnitsInStock;
+end;
+
+EXEC usp_006B;
 go
 
 
