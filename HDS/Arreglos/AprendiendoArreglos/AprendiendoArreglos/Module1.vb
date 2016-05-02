@@ -11,6 +11,7 @@
 
 
         ' Mostrar el arreglo 
+        Console.WriteLine("Tamaño: " & arreglo.Length)
         For Each elemento As String In arreglo
             Console.WriteLine(elemento)
         Next

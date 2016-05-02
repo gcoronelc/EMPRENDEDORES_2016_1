@@ -2,7 +2,7 @@
 
     Sub Main()
         ' Crea e inicializa un arreglo
-        Dim arreglo() As String = {"Coca Cola", "Inca Kola", "Pepsi cola", "Kola Real", "Guarana"}
+        Dim arreglo() As String = {"Coca Cola", "Inca Kola", "Pepsi cola", "Kola Real", "Guarana", "Oro"}
         ' Mostrar el arreglo
         Console.WriteLine("Tamaño: " & arreglo.Length)
         For Each value As String In arreglo
