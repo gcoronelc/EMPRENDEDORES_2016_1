@@ -20,9 +20,25 @@ if($op == 1){ // Ingreso
 } elseif ($op == 4) { // Limpiar Lista
   fnCerrar();
   return;
+} elseif ($op == 5) { // Limpiar Lista
+  fnEliminar();
+  return;
 }
 
 return;
+
+function fnEliminar() {
+  // Obtener la clave
+  $key = $_REQUEST["key"];
+  // Obtener el catalogo
+  $catalogo = $_SESSION["catalogo"];
+  // Eliminar elemento
+  unset($catalogo[$key]);
+  // Actualizar sesión
+  $_SESSION["catalogo"] = $catalogo;
+  // Retornar a la lista
+  header("location: listado.php");
+}
 
 function fnCerrar() {
   session_destroy();
@@ -36,9 +52,17 @@ function fnLimpiar() {
 
 
 function fnIngreso() {
+  $destino = "";
+  $nombres  = "Claudia,Carlos,Gilberto,No Recuerdo,";
   $nombre = $_REQUEST["nombre"];
-  $_SESSION["nombre"] = $nombre;
-  header("location: main.php");
+  if( strpos($nombres, $nombre) !== FALSE){
+    $_SESSION["nombre"] = $nombre;
+    $destino = "main.php";
+  } else {
+    $msgError = "Dato incorrecto.";
+    $destino = "index.php?error=$msgError";
+  }
+  header("location: $destino");
 }
 
 function fnAgregar() {
