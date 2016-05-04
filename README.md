@@ -10,3 +10,7 @@
 # ADMINISTRACIÓN DE BASE DE DATOS
 
 - Google Drive: https://drive.google.com/folderview?id=0B9nV2wShcCGMUC1PMU1QNXVZQms&usp=sharing
+
+# GESTION Y ADMINISTRACIÓN WEB
+
+- Google Drive: https://drive.google.com/folderview?id=0B9nV2wShcCGMaFVITHZqNmptM0U&usp=sharing
