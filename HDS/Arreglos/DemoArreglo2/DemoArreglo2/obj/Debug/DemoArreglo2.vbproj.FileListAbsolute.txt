@@ -1,0 +1,11 @@
+D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\bin\Debug\DemoArreglo2.exe.config
+D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\bin\Debug\DemoArreglo2.exe
+D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\bin\Debug\DemoArreglo2.pdb
+D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\bin\Debug\DemoArreglo2.xml
+D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.Form1.resources
+D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.FormListado.resources
+D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.Resources.resources
+D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.vbproj.GenerateResource.Cache
+D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.exe
+D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.xml
+D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.pdb

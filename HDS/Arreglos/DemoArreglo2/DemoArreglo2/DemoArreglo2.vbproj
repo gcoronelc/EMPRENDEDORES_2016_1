@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AEACD001-8C48-41CD-A645-C85F2D51E014}</ProjectGuid>
+    <ProjectGuid>{76003C77-CC84-4129-A868-6D99F9C22EB3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>NotasHDS.My.MyApplication</StartupObject>
-    <RootNamespace>NotasHDS</RootNamespace>
-    <AssemblyName>NotasHDS</AssemblyName>
+    <StartupObject>DemoArreglo2.My.MyApplication</StartupObject>
+    <RootNamespace>DemoArreglo2</RootNamespace>
+    <AssemblyName>DemoArreglo2</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -20,7 +20,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>NotasHDS.xml</DocumentationFile>
+    <DocumentationFile>DemoArreglo2.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -30,7 +30,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>NotasHDS.xml</DocumentationFile>
+    <DocumentationFile>DemoArreglo2.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -70,12 +70,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data.vb" />
+    <Compile Include="Datos.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEsta.Designer.vb">
+      <DependentUpon>FormEsta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEsta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormListado.Designer.vb">
@@ -99,11 +105,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="NotasService.vb" />
+    <Compile Include="NotaService.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEsta.resx">
+      <DependentUpon>FormEsta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormListado.resx">
       <DependentUpon>FormListado.vb</DependentUpon>

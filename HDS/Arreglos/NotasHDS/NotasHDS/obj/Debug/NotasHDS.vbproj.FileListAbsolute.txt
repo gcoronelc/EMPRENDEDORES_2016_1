@@ -1,1 +1,11 @@
 D:\HDS\Arreglos\NotasHDS\NotasHDS\bin\Debug\NotasHDS.exe.config
+D:\HDS\Arreglos\NotasHDS\NotasHDS\bin\Debug\NotasHDS.exe
+D:\HDS\Arreglos\NotasHDS\NotasHDS\bin\Debug\NotasHDS.pdb
+D:\HDS\Arreglos\NotasHDS\NotasHDS\bin\Debug\NotasHDS.xml
+D:\HDS\Arreglos\NotasHDS\NotasHDS\obj\Debug\NotasHDS.Form1.resources
+D:\HDS\Arreglos\NotasHDS\NotasHDS\obj\Debug\NotasHDS.Resources.resources
+D:\HDS\Arreglos\NotasHDS\NotasHDS\obj\Debug\NotasHDS.vbproj.GenerateResource.Cache
+D:\HDS\Arreglos\NotasHDS\NotasHDS\obj\Debug\NotasHDS.exe
+D:\HDS\Arreglos\NotasHDS\NotasHDS\obj\Debug\NotasHDS.xml
+D:\HDS\Arreglos\NotasHDS\NotasHDS\obj\Debug\NotasHDS.pdb
+D:\HDS\Arreglos\NotasHDS\NotasHDS\obj\Debug\NotasHDS.FormListado.resources

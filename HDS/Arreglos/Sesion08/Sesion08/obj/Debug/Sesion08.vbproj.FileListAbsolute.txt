@@ -1,0 +1,10 @@
+D:\HDS\Arreglos\Sesion08\Sesion08\bin\Debug\Sesion08.exe.config
+D:\HDS\Arreglos\Sesion08\Sesion08\bin\Debug\Sesion08.exe
+D:\HDS\Arreglos\Sesion08\Sesion08\bin\Debug\Sesion08.pdb
+D:\HDS\Arreglos\Sesion08\Sesion08\bin\Debug\Sesion08.xml
+D:\HDS\Arreglos\Sesion08\Sesion08\obj\Debug\Sesion08.Form1.resources
+D:\HDS\Arreglos\Sesion08\Sesion08\obj\Debug\Sesion08.Resources.resources
+D:\HDS\Arreglos\Sesion08\Sesion08\obj\Debug\Sesion08.vbproj.GenerateResource.Cache
+D:\HDS\Arreglos\Sesion08\Sesion08\obj\Debug\Sesion08.exe
+D:\HDS\Arreglos\Sesion08\Sesion08\obj\Debug\Sesion08.xml
+D:\HDS\Arreglos\Sesion08\Sesion08\obj\Debug\Sesion08.pdb

@@ -9,7 +9,7 @@
     Function ObtenerNotas() As Integer()
         Dim Notas2(Data.Cont - 1) As Integer
         For i As Integer = 0 To Data.Cont - 1
-            Notas2(0) = Data.Notas(i)
+            Notas2(i) = Data.Notas(i)
         Next
         Return Notas2
     End Function
