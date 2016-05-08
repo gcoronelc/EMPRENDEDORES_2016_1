@@ -9,3 +9,16 @@ D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.vbproj.Generate
 D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.exe
 D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.xml
 D:\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.pdb
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\bin\Debug\DemoArreglo2.exe.config
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.exe
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.xml
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.pdb
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\bin\Debug\DemoArreglo2.exe
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\bin\Debug\DemoArreglo2.pdb
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\bin\Debug\DemoArreglo2.xml
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.vbprojResolveAssemblyReference.cache
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.Form1.resources
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.FormEsta.resources
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.FormListado.resources
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.Resources.resources
+E:\Git\EMPRENDEDORES_2016_1\HDS\Arreglos\DemoArreglo2\DemoArreglo2\obj\Debug\DemoArreglo2.vbproj.GenerateResource.Cache

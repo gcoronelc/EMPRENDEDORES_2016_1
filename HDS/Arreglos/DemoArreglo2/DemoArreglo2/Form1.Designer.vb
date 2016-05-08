@@ -22,73 +22,73 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtNota = New System.Windows.Forms.TextBox()
-        Me.btnAgregar = New System.Windows.Forms.Button()
-        Me.btnListado = New System.Windows.Forms.Button()
-        Me.btnEstadistica = New System.Windows.Forms.Button()
-        Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(42, 22)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(30, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Nota"
-        '
-        'txtNota
-        '
-        Me.txtNota.Location = New System.Drawing.Point(45, 48)
-        Me.txtNota.Name = "txtNota"
-        Me.txtNota.Size = New System.Drawing.Size(100, 20)
-        Me.txtNota.TabIndex = 1
-        '
-        'btnAgregar
-        '
-        Me.btnAgregar.Location = New System.Drawing.Point(214, 48)
-        Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
-        Me.btnAgregar.TabIndex = 2
-        Me.btnAgregar.Text = "Agregar"
-        Me.btnAgregar.UseVisualStyleBackColor = True
-        '
-        'btnListado
-        '
-        Me.btnListado.Location = New System.Drawing.Point(45, 157)
-        Me.btnListado.Name = "btnListado"
-        Me.btnListado.Size = New System.Drawing.Size(75, 23)
-        Me.btnListado.TabIndex = 3
-        Me.btnListado.Text = "Listado"
-        Me.btnListado.UseVisualStyleBackColor = True
-        '
-        'btnEstadistica
-        '
-        Me.btnEstadistica.Location = New System.Drawing.Point(229, 157)
-        Me.btnEstadistica.Name = "btnEstadistica"
-        Me.btnEstadistica.Size = New System.Drawing.Size(75, 23)
-        Me.btnEstadistica.TabIndex = 4
-        Me.btnEstadistica.Text = "Estadistica"
-        Me.btnEstadistica.UseVisualStyleBackColor = True
-        '
-        'Form1
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(553, 279)
-        Me.Controls.Add(Me.btnEstadistica)
-        Me.Controls.Add(Me.btnListado)
-        Me.Controls.Add(Me.btnAgregar)
-        Me.Controls.Add(Me.txtNota)
-        Me.Controls.Add(Me.Label1)
-        Me.Name = "Form1"
-        Me.Text = "Form1"
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+    Me.Label1 = New System.Windows.Forms.Label()
+    Me.txtNota = New System.Windows.Forms.TextBox()
+    Me.btnAgregar = New System.Windows.Forms.Button()
+    Me.btnListado = New System.Windows.Forms.Button()
+    Me.btnEstadistica = New System.Windows.Forms.Button()
+    Me.SuspendLayout()
+    '
+    'Label1
+    '
+    Me.Label1.AutoSize = True
+    Me.Label1.Location = New System.Drawing.Point(47, 38)
+    Me.Label1.Name = "Label1"
+    Me.Label1.Size = New System.Drawing.Size(30, 13)
+    Me.Label1.TabIndex = 0
+    Me.Label1.Text = "Nota"
+    '
+    'txtNota
+    '
+    Me.txtNota.Location = New System.Drawing.Point(50, 64)
+    Me.txtNota.Name = "txtNota"
+    Me.txtNota.Size = New System.Drawing.Size(100, 20)
+    Me.txtNota.TabIndex = 1
+    '
+    'btnAgregar
+    '
+    Me.btnAgregar.Location = New System.Drawing.Point(219, 64)
+    Me.btnAgregar.Name = "btnAgregar"
+    Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
+    Me.btnAgregar.TabIndex = 2
+    Me.btnAgregar.Text = "Agregar"
+    Me.btnAgregar.UseVisualStyleBackColor = True
+    '
+    'btnListado
+    '
+    Me.btnListado.Location = New System.Drawing.Point(50, 143)
+    Me.btnListado.Name = "btnListado"
+    Me.btnListado.Size = New System.Drawing.Size(75, 23)
+    Me.btnListado.TabIndex = 3
+    Me.btnListado.Text = "Listado"
+    Me.btnListado.UseVisualStyleBackColor = True
+    '
+    'btnEstadistica
+    '
+    Me.btnEstadistica.Location = New System.Drawing.Point(219, 143)
+    Me.btnEstadistica.Name = "btnEstadistica"
+    Me.btnEstadistica.Size = New System.Drawing.Size(75, 23)
+    Me.btnEstadistica.TabIndex = 4
+    Me.btnEstadistica.Text = "Estadistica"
+    Me.btnEstadistica.UseVisualStyleBackColor = True
+    '
+    'Form1
+    '
+    Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+    Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+    Me.ClientSize = New System.Drawing.Size(362, 225)
+    Me.Controls.Add(Me.btnEstadistica)
+    Me.Controls.Add(Me.btnListado)
+    Me.Controls.Add(Me.btnAgregar)
+    Me.Controls.Add(Me.txtNota)
+    Me.Controls.Add(Me.Label1)
+    Me.Name = "Form1"
+    Me.Text = "INGRESO DE DATOS"
+    Me.ResumeLayout(False)
+    Me.PerformLayout()
 
-    End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+  End Sub
+  Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtNota As System.Windows.Forms.TextBox
     Friend WithEvents btnAgregar As System.Windows.Forms.Button
     Friend WithEvents btnListado As System.Windows.Forms.Button
