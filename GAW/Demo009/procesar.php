@@ -22,7 +22,6 @@ function fnImporte($consumo) {
   $i = 0;
   $tope = count($precios) - 1;
   while ($consumo > 0 && $i <= $tope) {
-    echo "i = $i<br/>";
     if ($consumo > $limites[$i] && $i < $tope) {
       $kwh = $limites[$i];
     } else {
