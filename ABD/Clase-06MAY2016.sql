@@ -110,8 +110,7 @@ go
 
 /*
 Ejercicio 04
-Se necesita el profesor que mas estudiantes
-desaprobados tiene en cada ciclo de un
+Se necesita el profesor que mas estudiantes desaprobados tiene en cada ciclo de un
 determinado periodo.
 También la cantidad de cursos asignados.
 */
@@ -121,7 +120,7 @@ alter procedure usp_edutec_004
 ( @periodo varchar(4) )
 as
 begin
-	
+	-- Tabla temporal para el resumen previo
 	create table #resumen(
 	  IdCiclo char(7) null,
 	  IdProfesor char(4) null,
@@ -129,7 +128,7 @@ begin
 	  Matriculados int null, 
 	  Desaprobados int null
 	);
-	
+	-- Se inserta el rsumen
 	insert into #resumen(IdCiclo,IdProfesor,
 	Cursos,Matriculados,Desaprobados)  
 	select cp.IdCiclo, cp.IdProfesor,
@@ -140,11 +139,20 @@ begin
 	join matricula m on cp.IdCursoProg = m.IdCursoProg
 	where cp.IdProfesor is not null
 	and  cp.IdCiclo like @periodo + '%'
-	group by cp.IdCiclo,cp.IdProfesor
-
-	select * from #resumen
+	group by cp.IdCiclo,cp.IdProfesor;
+	-- Consulta final
+	with v1 as (
+		select IdCiclo, MAX(Desaprobados) Desaprobados 
+		from #resumen 
+		group by IdCiclo)
+	select 
+		r.IdCiclo, r.IdProfesor, p.ApeProfesor, p.NomProfesor,
+		r.Cursos, r.Matriculados, r.Desaprobados, 
+		CAST(r.Desaprobados * 100.0/r.Matriculados AS DECIMAL(10,2)) Porcentaje
+	from #resumen r
+	join v1 on r.IdCiclo = v1.idCiclo and r.Desaprobados = v1.Desaprobados
+	join Profesor p on r.IdProfesor = p.IdProfesor
 	order by 1 ,  2;
-	
 end;
 go
 
