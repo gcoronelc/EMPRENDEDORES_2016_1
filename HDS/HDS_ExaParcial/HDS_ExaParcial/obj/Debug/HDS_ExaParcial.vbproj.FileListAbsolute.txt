@@ -1,0 +1,13 @@
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\bin\Debug\HDS_ExaParcial.exe.config
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\bin\Debug\HDS_ExaParcial.exe
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\bin\Debug\HDS_ExaParcial.pdb
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\bin\Debug\HDS_ExaParcial.xml
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\obj\Debug\HDS_ExaParcial.vbprojResolveAssemblyReference.cache
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\obj\Debug\HDS_ExaParcial.Form1.resources
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\obj\Debug\HDS_ExaParcial.Resources.resources
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\obj\Debug\HDS_ExaParcial.vbproj.GenerateResource.Cache
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\obj\Debug\HDS_ExaParcial.exe
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\obj\Debug\HDS_ExaParcial.xml
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\obj\Debug\HDS_ExaParcial.pdb
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\obj\Debug\HDS_ExaParcial.Form2.resources
+E:\USIL-EMP\2016-01\ExaParcial\HDS_ExaParcial\HDS_ExaParcial\obj\Debug\HDS_ExaParcial.Form3.resources
