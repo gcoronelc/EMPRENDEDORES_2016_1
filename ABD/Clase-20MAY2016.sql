@@ -88,7 +88,41 @@ go
 select dbo.fn_promedio  (15,15,15,5) as promedio;
 go
 
-		
+-- Actualizar nota
+-- @@ROWCOUNT
+
+create procedure uspActualizaNota
+(@IdCursoProg int, @IdAlumno char(5), 
+@nota numeric(4,2), @tipo char(2))
+-- @tipo = EP, EF
+as
+begin
+	if(@tipo <> 'EP' and @tipo <> 'EF')
+	begin
+		print 'Tipo de examen incorrecto.';
+		return;
+	end
+	if(@tipo = 'EP')
+		update Matricula
+		set ExaParcial = @nota
+		where IdCursoProg = @IdCursoProg and IdAlumno = @IdAlumno;
+	else 
+		update Matricula
+		set ExaFinal = @nota
+		where IdCursoProg = @IdCursoProg and IdAlumno = @IdAlumno;	
+	if(@@ROWCOUNT = 0)
+		print 'Datos incorrectos.';
+	else
+		print 'Proceso ejecutado correctamente.';
+end;
+go
+
+exec uspActualizaNota 8028, 'A0048', 18, 'EP';
+go
+
+select * from Matricula
+order by 1 desc;
+go		
 		
 
 

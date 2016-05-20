@@ -22,8 +22,6 @@ go
 -- Encontrar el mayor de 3 números
 -- Desarrollar una función
 
-
-
 create function fnMayor
  ( @n1  int ,@n2 int, @n3 int)
 returns int
@@ -74,3 +72,7 @@ go
   
 select dbo.nunmayor(1,1,-15)
 go
+
+
+
+
