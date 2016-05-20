@@ -27,3 +27,40 @@ BEGIN
 	print  'MCM: ' + cast(@b as varchar);
 END;
 GO
+
+
+-- Serie Fibonacci
+-- Reyes
+-- @m > 2
+
+alter proc uspFibonacci (@n int)
+as
+begin
+	declare @a int, @b int, @c int, @cont int;
+	declare @texto varchar(2000);
+	-- Valores iniciales
+	set @texto = '0  1'; 
+	set @a = 0;
+	set @b = 1;
+	set @cont = 2;
+	-- Proceso
+	while @cont < @n
+	begin
+		set @c= @a + @b;
+		set @a = @b;
+		set @b = @c;
+		set @texto = @texto + '   ' + CAST(@c as varchar);
+		set @cont = @cont + 1;
+	end;
+	-- Reporte
+	print @texto;
+end;
+go
+
+exec uspFibonacci 15;
+go
+			
+
+
+
+
