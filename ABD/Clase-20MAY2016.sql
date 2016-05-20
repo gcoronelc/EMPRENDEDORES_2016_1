@@ -60,6 +60,37 @@ go
 exec uspFibonacci 15;
 go
 			
+---promedio
+--carmen dominguez
+
+create function fn_promedio
+(@valor1 decimal (4,2),
+@valor2 decimal (4,2),
+@valor3 decimal (4,2),
+@valor4 decimal (4,2)
+)
+returns decimal (6,2)
+as
+begin
+	declare @result decimal (6,2), @menor decimal(6,2);
+	set @menor =@valor1 ;
+	if(@valor2  <@menor)
+		set  @menor =@valor2 ;
+	if(@valor3   <@menor)
+		set  @menor =@valor3  ;
+	if(@valor4   <@menor)
+		set  @menor =@valor4  ;
+	set @result =(@valor1 +@valor2 +@valor3 +@valor4 -@menor )/3;
+	return @result;
+end;
+go
+
+select dbo.fn_promedio  (15,15,15,5) as promedio;
+go
+
+		
+		
+
 
 
 
