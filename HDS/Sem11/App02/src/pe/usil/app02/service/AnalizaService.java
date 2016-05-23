@@ -17,7 +17,15 @@ public class AnalizaService {
     return rpta;
   }
   
-  
+  public boolean esPar(int n){
+    boolean rpta;
+    if(n % 2 == 0){
+      rpta = true;
+    } else {
+      rpta = false;
+    }
+    return rpta;
+  }
   
   
 }

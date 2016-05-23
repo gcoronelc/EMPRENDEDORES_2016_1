@@ -5,6 +5,7 @@
  */
 package pe.usil.app02.view;
 
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import pe.usil.app02.service.AnalizaService;
 
@@ -69,23 +70,28 @@ public class PrimoView extends javax.swing.JDialog {
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
           .addComponent(btnProcesar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(50, Short.MAX_VALUE))
+        .addGap(50, 50, 50))
     );
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
   private void btnProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesarActionPerformed
-    // Dato
-    int num = Integer.parseInt(txtNum.getText());
-    // Proceso
-    AnalizaService service = new AnalizaService();
-    boolean rpta = service.esPrimo(num);
-    // Reporte
-    String repo = "";
-    repo += "Número: " + num + "\n";
-    repo += "Es Primo: " + rpta + "\n";
-    JOptionPane.showMessageDialog(rootPane, repo);
+    try{
+      // Dato
+      int num = Integer.parseInt(txtNum.getText());
+      // Proceso
+      AnalizaService service = new AnalizaService();
+      boolean rpta = service.esPrimo(num);
+      // Reporte
+      String repo = "";
+      repo += "Número: " + num + "\n";
+      repo += "Es Primo: " + rpta + "\n";
+      JOptionPane.showMessageDialog(rootPane, repo);
+    } catch(Exception e){
+      JOptionPane.showMessageDialog(rootPane, e.getMessage(),
+              "ERROR",JOptionPane.ERROR_MESSAGE);
+    }
   }//GEN-LAST:event_btnProcesarActionPerformed
 
   /**

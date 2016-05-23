@@ -1,0 +1,30 @@
+TAREA
+=====
+
+Hacer una aplicación que permita evaluar
+las notas de un estudiante de HDS.
+
+Las notas son:
+
+  - Examen parcial.
+  - Examen Final.
+  - Practica 1.
+  - Practica 2.
+  - Practica 3.
+  - Practica 4.
+
+Para calcular el promedio de practicas
+solo se considerar las 3 mejores.
+
+Los pesos son:
+
+  - Promedio de practicas: 40%
+  - Examen Parcial: 20%
+  - Examen Final: 40%
+
+La condición del estudiantes:
+
+  - Promedio >= 13: Aprobado
+  - 11 <= Promedio < 13: Rezagado
+  - promedio < 11: Desaprobado
+
