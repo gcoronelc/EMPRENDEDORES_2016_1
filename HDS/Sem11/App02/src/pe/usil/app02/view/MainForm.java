@@ -43,6 +43,11 @@ public class MainForm extends javax.swing.JFrame {
     btnParImpar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
     btnParImpar.setForeground(new java.awt.Color(51, 0, 255));
     btnParImpar.setText("Par o Impar");
+    btnParImpar.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnParImparActionPerformed(evt);
+      }
+    });
 
     btnSalir.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
     btnSalir.setForeground(new java.awt.Color(51, 0, 255));
@@ -91,6 +96,11 @@ public class MainForm extends javax.swing.JFrame {
     PrimoView view = new PrimoView(this, true);
     view.setVisible(true);
   }//GEN-LAST:event_btnPrimoActionPerformed
+
+  private void btnParImparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParImparActionPerformed
+    EsParView view = new EsParView(this, true);
+    view.setVisible(true);
+  }//GEN-LAST:event_btnParImparActionPerformed
 
   /**
    * @param args the command line arguments

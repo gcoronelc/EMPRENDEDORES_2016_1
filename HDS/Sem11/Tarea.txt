@@ -1,6 +1,10 @@
 TAREA
 =====
 
+Fecha de presentación: 26-MAY-2016
+
+Enunciado:
+
 Hacer una aplicación que permita evaluar
 las notas de un estudiante de HDS.
 
