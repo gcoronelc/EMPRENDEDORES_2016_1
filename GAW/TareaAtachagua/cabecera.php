@@ -2,10 +2,6 @@
 <h2>BASE DE DATOS: EUREKABANK</h2>
 <table>
   <tr>
-    <td>Estudiante 1</td>
-    <td>Gustavo Coronel</td>
-  </tr>
-  <tr>
     <td>Estudiante 2</td>
     <td>Teofilo el NENE Cubillas</td>
   </tr>

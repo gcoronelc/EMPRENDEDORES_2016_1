@@ -1,12 +1,18 @@
 <?php
 require './lib/libreria.php';
+
+$rsSucu = getSucursales();           // ResultSet de sucursales
+$cantSucu = mysql_num_rows($rsSucu); // Cantidad de sucursales
+
 if (isset($_REQUEST["btnProcesar"])) {
   // Dato
-  $cuenta = $_REQUEST["cuenta"];
-
+  $sucu = $_REQUEST["sucu"];
   // Proceso
-  $rs = getCuenta($cuenta);
+  $rsCuentas = getResumenCuentas($sucu);
+  $cantCuentas = mysql_num_rows($rsCuentas);
+  echo $cantCuentas;
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,19 +22,18 @@ if (isset($_REQUEST["btnProcesar"])) {
   </head>
   <body>
     <?php include './cabecera.php'; ?>
-    <form method="post" action="procesar.php">
+    <form method="post" action="pregunta1.php">
       <table>
         <tr>
           <td>SUCURSAL</td>
           <td>
             <select name="sucu">
-              <option value="C01">Sipan</option>
-              <option value="C02">Chan Cham</option>
-              <option value="C03">Los Olivos</option>
-              <option value="C04">Pardo</option>
-              <option value="C05">Misti</option>
-              <option value="C06">Machu Pichu</option>
-              <option value="C07">Grau </option>  
+              <?php for($i = 0; $i < $cantSucu; $i++) { ?>
+              <option value="<?php echo mysql_result($rsSucu, $i, 'codigo'); ?>">
+                <?php echo mysql_result($rsSucu, $i, 'codigo'); ?> - 
+                <?php echo mysql_result($rsSucu, $i, 'nombre'); ?>
+              </option>
+              <?php } ?>
             </select>
           </td>
           <td>
@@ -37,27 +42,33 @@ if (isset($_REQUEST["btnProcesar"])) {
         </tr>                       
       </table>
     </form>
-
-    <?php if (isset($rs) && mysql_num_rows($rs) > 0) { ?>
+    
+    <?php if( isset($rsCuentas) && $cantCuentas == 0) { ?>
       <h2>RESULTADO</h2>
-      <table>
+      <p>sucursal:<?php echo $sucu; ?> </p>
+      <p>No tiene cuentas.</p>
+    <?php } ?> 
+    
+
+    <?php if( isset($rsCuentas) && $cantCuentas > 0) { ?>
+      <h2>RESULTADO</h2>
+      <p>sucursal:<?php echo $sucu; ?> </p>
+      <table boder='1'>
         <tr>
           <td>CUENTA</td>
-          <td><?php echo mysql_result($rs, 0, "chr_cuencodigo") ?></td>
-        </tr>
-        <tr>
-          <td>MONEDA</td>
-          <td><?php echo mysql_result($rs, 0, "chr_monecodigo") ?></td>
-        </tr>
-        <tr>
+          <td>INGRESO</td>
+          <td>SALIDA</td>
           <td>SALDO</td>
-          <td><?php echo mysql_result($rs, 0, "dec_cuensaldo") ?></td>
         </tr>
-
-      </form>
-      <h2> RESPUESTA</h2>
-
-      <p>sucursal:<?php echo $sucursal; ?> </p>
+        
+        <?php for($i = 0; $i < $cantCuentas; $i++) { ?>
+        <tr>
+          <td><?php echo mysql_result($rsCuentas, 0, "cuenta") ?></td>
+          <td><?php echo mysql_result($rsCuentas, 0, "ingreso") ?></td>
+          <td><?php echo mysql_result($rsCuentas, 0, "salida") ?></td>
+          <td><?php echo mysql_result($rsCuentas, 0, "saldo") ?></td>
+        </tr>
+        <?php } ?>
 
     <?php } ?> 
 </body>
