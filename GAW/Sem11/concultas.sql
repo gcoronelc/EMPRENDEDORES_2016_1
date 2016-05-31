@@ -57,12 +57,7 @@ join cuenta c on m.chr_cuencodigo = c.chr_cuencodigo
 where c.chr_sucucodigo = '001';
 
 
-
-
-
-
-
-
+-- Parte 3
 
 select 
 	m.chr_cuencodigo AS cuenta,
