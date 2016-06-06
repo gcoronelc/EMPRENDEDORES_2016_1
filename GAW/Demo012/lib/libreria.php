@@ -56,3 +56,32 @@ function  gettipomovimiento($tipomovimiento) {
      
 }
 
+function procDeposito($cuenta, $importe, $codEmp){
+  $cn = getConnection();
+  // Paso 1: Iniciar Tx
+  mysql_query("begin work", $cn);
+  // Paso 2: Leer datos de la cuenta
+  $sql = "select dec_cuensaldo, int_cuencontmov "
+          . "from cuenta "
+          . "where chr_cuencodigo = '$cuenta' ";
+  $rs = mysql_query($sql, $cn);
+  $saldo = mysql_result($rs, 0, 0);
+  $cont = mysql_result($rs, 0, 1);
+  // Paso 3: Actualizar datos
+  $saldo += $importe;
+  $cont++;
+  // Actualizar cuenta
+  $sql = "update cuenta set dec_cuensaldo=$saldo, "
+          . "int_cuencontmov = $cont "
+          . "where chr_cuencodigo = '$cuenta'";
+  mysql_query($sql, $cn);
+  // Registrar movimiento
+  $sql = "insert into movimiento(chr_cuencodigo, 
+    int_movinumero, dtt_movifecha, chr_emplcodigo, 
+    chr_tipocodigo, dec_moviimporte) values(
+    '$cuenta',$cont,SYSDATE(),'$codEmp','003',$importe)";
+  mysql_query($sql, $cn);
+  // Confirmar TX
+  mysql_query("commit",$cn);
+}
+
