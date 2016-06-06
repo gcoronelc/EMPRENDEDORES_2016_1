@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pe.usil.prueba;
 
 import pe.usil.dto.Producto;
 
 /**
  *
- * @author alumno
+ * @author Gustavo Coronel
+ * @blog www.desarrollasoftware.com
+ * @email gcoronelc@gmail.com
  */
 public class Prueba02 extends javax.swing.JFrame {
 

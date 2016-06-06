@@ -1,4 +1,3 @@
-
 package pe.usil.prueba;
 
 import pe.usil.dto.Producto;
