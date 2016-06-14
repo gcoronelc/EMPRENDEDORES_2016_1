@@ -29,6 +29,24 @@ function getDepartamentos(){
   return $rs;
 }
 
+function getDepartamentosTodos(){
+  $cn = getConnection();
+  $sql = "select iddepartamento code, nombre
+          from departamento";
+  $rs = mysql_query($sql, $cn);
+  $arrayDeps = rsToArray($rs);
+  return $arrayDeps;
+}
+
+function getCargosTodos(){
+  $cn = getConnection();
+  $sql = "select idcargo code, nombre
+          from cargo";
+  $rs = mysql_query($sql, $cn);
+  $arrayDeps = rsToArray($rs);
+  return $arrayDeps;
+}
+
 function getEmpPorDep($codDep){
   $cn = getConnection();
   $sql = "select idempleado, apellido, nombre,
@@ -54,6 +72,53 @@ function getDepartamento($codDep){
   }
   return $arrayDep;
 }
+
+function grabarEmpleado($datos){
+  $cn = getConnection();
+  mysql_query("begin work",$cn);
+  // Sueldo mdel empleado
+  $sql = "select (sueldo_min + sueldo_max) / 2 "
+          . "sueldo from cargo "
+          . "where idcargo = '" . $datos["codCargo"] . "'";
+  $rs = mysql_query($sql, $cn);
+  $sueldo = mysql_result($rs, 0, 0);
+  // Codigo
+  $sql = "select valor from control "
+          . "where parametro = 'Empleado' "
+          . "for update ";
+  $rs = mysql_query($sql, $cn);
+  $cont = mysql_result($rs, 0, 0);
+  $cont = $cont + 1;
+  $sql = "update control set valor = '$cont' "
+          . "where parametro = 'Empleado' ";
+  mysql_query($sql, $cn);
+  $codigo = "E" . str_pad($cont, 4, "0", STR_PAD_LEFT);
+  // Comisión
+  $comi = 0.0;
+  if($datos["codCargo"] == "C05"){
+    $comi = $sueldo * 0.5;
+  }
+  // Jefe
+  $sql = "select idempleado from empleado "
+          . "where idcargo in ('C01','C02') "
+          . "and iddepartamento = " . $datos["codDep"];
+  $rs = mysql_query($sql,$cn);
+  $jefe = mysql_result($rs, 0, 0);
+  // Insertar dato
+  $sql = "insert into empleado(idempleado,apellido,nombre,
+    fecingreso,email,telefono,idcargo,iddepartamento,
+    sueldo,comision,jefe) values('{$codigo}',
+    '{$datos['apellido']}','{$datos['nombre']}',
+    '{$datos['fecha']}','{$datos['email']}',
+    '{$datos['telefono']}','{$datos['codCargo']}',
+    '{$datos['codDep']}',{$sueldo},{$comi},'{$jefe}')";
+  echo "SQL:" . $sql;
+  mysql_query($sql, $cn);
+  // Confirmar Tx
+  mysql_query("commit",$cn);
+  return 1;
+}
+
 
 function rsToArray($rs){
   $array = array();
