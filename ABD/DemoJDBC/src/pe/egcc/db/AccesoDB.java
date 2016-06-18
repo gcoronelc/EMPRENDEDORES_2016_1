@@ -14,9 +14,9 @@ public class AccesoDB {
     try {
       // Datos Oracle
       String driver = "net.sourceforge.jtds.jdbc.Driver";
-      String url = "jdbc:jtds:sqlserver://localhost:1433/edutec";
-      String user = "gustavo";
-      String pass = "admin";
+      String url = "jdbc:jtds:sqlserver://localhost:1433/ALUMNO-PC";
+      String user = "zoila";
+      String pass = "123";
       // Cargar el driver a memoria
       Class.forName(driver).newInstance();
       // Obtener el objeto Connection
