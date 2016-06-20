@@ -31,8 +31,7 @@ function getDepartamentos(){
 
 function getDepartamentosTodos(){
   $cn = getConnection();
-  $sql = "select iddepartamento code, nombre
-          from departamento";
+  $sql = "select iddepartamento code, nombre from departamento";
   $rs = mysql_query($sql, $cn);
   $arrayDeps = rsToArray($rs);
   return $arrayDeps;
@@ -40,8 +39,7 @@ function getDepartamentosTodos(){
 
 function getCargosTodos(){
   $cn = getConnection();
-  $sql = "select idcargo code, nombre
-          from cargo";
+  $sql = "select idcargo code, nombre from cargo where idcargo not in ('C01','C02')";
   $rs = mysql_query($sql, $cn);
   $arrayDeps = rsToArray($rs);
   return $arrayDeps;
@@ -65,7 +63,7 @@ function getDepartamento($codDep){
           from departamento 
           where iddepartamento = $codDep";
   $rs = mysql_query($sql, $cn);
-  if(mysql_num_rows($rs) === 0){
+  if(mysql_num_rows($rs) == 0){
     $arrayDep = array();
   } else {
     $arrayDep = mysql_fetch_assoc($rs);
@@ -75,27 +73,46 @@ function getDepartamento($codDep){
 
 function grabarEmpleado($datos){
   $cn = getConnection();
-  mysql_query("begin work",$cn);
-  // Sueldo mdel empleado
+  // Validar Cargo
+  $sql = "select count(1) cont from cargo where idcargo = '" . $datos["codCargo"] . "'";
+  $rs = mysql_query($sql);
+  $cont = mysql_result($rs, 0, 0);
+  if($cont == 0){
+    return "Cargo no existe.";
+  }
+  // Validar Departamento
+  $sql = "select count(1) cont from departamento where iddepartamento = " . $datos["codDep"];
+  $rs = mysql_query($sql);
+  $cont = mysql_result($rs, 0, 0);
+  if($cont == 0){
+    return "Departamento no existe.";
+  }
+  // Validar si departamento tiene jefe
+  $sql = "select count(1) cont from empleado where idcargo in ('C01','C02') and iddepartamento = " . $datos["codDep"];
+  $rs = mysql_query($sql);
+  $cont = mysql_result($rs, 0, 0);
+  if($cont == 0){
+    return "Departamento no tiene jefe.";
+  } 
+  // Sueldo del empleado
   $sql = "select (sueldo_min + sueldo_max) / 2 "
           . "sueldo from cargo "
           . "where idcargo = '" . $datos["codCargo"] . "'";
   $rs = mysql_query($sql, $cn);
   $sueldo = mysql_result($rs, 0, 0);
+  // Inicio de Tx
+  mysql_query("begin work",$cn);
   // Codigo
-  $sql = "select valor from control "
-          . "where parametro = 'Empleado' "
-          . "for update ";
+  $sql = "select valor from control where parametro = 'Empleado' for update ";
   $rs = mysql_query($sql, $cn);
   $cont = mysql_result($rs, 0, 0);
   $cont = $cont + 1;
-  $sql = "update control set valor = '$cont' "
-          . "where parametro = 'Empleado' ";
+  $sql = "update control set valor = '$cont' where parametro = 'Empleado' ";
   mysql_query($sql, $cn);
   $codigo = "E" . str_pad($cont, 4, "0", STR_PAD_LEFT);
   // Comisión
   $comi = 0.0;
-  if($datos["codCargo"] == "C05"){
+  if( strcmp($datos["codCargo"], "C05") == 0 ){
     $comi = $sueldo * 0.5;
   }
   // Jefe
@@ -112,11 +129,15 @@ function grabarEmpleado($datos){
     '{$datos['fecha']}','{$datos['email']}',
     '{$datos['telefono']}','{$datos['codCargo']}',
     '{$datos['codDep']}',{$sueldo},{$comi},'{$jefe}')";
-  echo "SQL:" . $sql;
   mysql_query($sql, $cn);
+  if(mysql_errno($cn) <> 0){
+    $texto = "Error en el proceso. " . mysql_error($cn);
+    mysql_query("rollback", $cn);
+    return $texto;
+  }
   // Confirmar Tx
   mysql_query("commit",$cn);
-  return 1;
+  return "";
 }
 
 

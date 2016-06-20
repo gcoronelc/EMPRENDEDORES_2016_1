@@ -13,12 +13,7 @@ if(isset($_REQUEST["btnGrabar"])){
   $datos["fecha"] = $_REQUEST["fecha"];
   $datos["email"] = $_REQUEST["email"];
   $datos["telefono"] = $_REQUEST["telefono"];
-  $code = grabarEmpleado($datos);
-  if($code === 1){
-    $msg = "Proceso ok.";
-  }else{
-    $msg = "Error en el proceso.";
-  }
+  $msg = grabarEmpleado($datos);
 }
 
 ?>
@@ -31,6 +26,15 @@ if(isset($_REQUEST["btnGrabar"])){
   <body>
     <?php include './cabecera.php'; ?>
     <h2>REGISTRAR NUEVOS EMPLEADOS</h2>
+    <?php
+    if( isset($_REQUEST["btnGrabar"]) ){
+      if( empty($msg) ){
+        echo "<p>Proceso ejecutado correctamente.</p>";
+      } else {
+        echo "<p>$msg</p>";
+      }
+    }
+    ?>
     <form method="post" action="registrar.php">
       <table>
         <tr>
@@ -68,7 +72,7 @@ if(isset($_REQUEST["btnGrabar"])){
           <td><input type="text" name="nombre"/></td>
         </tr>
         <tr>
-          <td>Fecha Ing.: </td>
+          <td>Fecha Ing. (YYYY-MM-DD): </td>
           <td><input type="text" name="fecha"/></td>
         </tr>
         <tr>
