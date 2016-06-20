@@ -1,7 +1,8 @@
 <?php
 function getConnection() {
   $cn = mysql_connect("localhost", "recursos", "admin");
-  mysql_query("SET character_set_results=utf8", $cn);
+  //mysql_query("SET character_set_results=utf8", $cn);
+  mysql_query("SET NAMES 'utf8'", $cn);
   $db = mysql_select_db("RECURSOS", $cn);
   return $cn;
 }
