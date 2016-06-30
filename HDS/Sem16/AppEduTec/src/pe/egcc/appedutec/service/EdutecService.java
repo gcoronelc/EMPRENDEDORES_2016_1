@@ -16,11 +16,11 @@ import pe.egcc.appedutec.domain.Profesor;
  */
 public class EdutecService {
   
-  public List<Profesor> conProfesore(Profesor bean){
+  public List<Profesor> conProfesores(Profesor bean){
     List<Profesor> lista = new ArrayList<>();
     Connection cn = null;
     try {
-      cn = AccesoDB.getConnection();
+      cn = AccesoDB.getConnection(); // Abre conexión con SQL Server
       String sql = "select idprofesor, apeprofesor, nomprofesor,"
               + "dirprofesor, telprofesor, emailprofesor "
               + "from profesor where "
@@ -51,10 +51,14 @@ public class EdutecService {
       rs.close();
       pstm.close();
     } catch (Exception e) {
-      throw new RuntimeException("Error.");
+      String texto = "Error en la consulta.";
+      if(e != null && !e.getMessage().isEmpty()){
+        texto += ("\n" + e.getMessage());
+      }
+      throw new RuntimeException(texto);
     } finally{
       try {
-        cn.close();
+        cn.close(); // Cerrar conexión con SQL Server
       } catch (Exception e) {
       }
     }

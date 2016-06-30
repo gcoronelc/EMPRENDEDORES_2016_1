@@ -22,8 +22,8 @@ public final class AccesoDB {
   // Parametros de conexión
   private static final String DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
   private static final String DB_URL = "jdbc:sqlserver://192.168.253.135:1433;databaseName=EduTec";
-  private static final String DB_USER = "sa";
-  private static final String DB_PASS = "sql";
+  private static final String DB_USER = "papucho";
+  private static final String DB_PASS = "admin";
   
   /**
    * Permite tener acceso al objeto Connection.
