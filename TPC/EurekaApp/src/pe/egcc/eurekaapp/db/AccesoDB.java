@@ -8,9 +8,9 @@ public final class AccesoDB {
 
   // Parámetros
   private static final String  DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-  private static final String  URL = "jdbc:sqlserver://192.168.121.129:1433;databaseName=eurekabank";
-  private static final String  USER = "sa";
-  private static final String  PASSWORD = "sql";
+  private static final String  URL = "jdbc:sqlserver://192.168.116.130:1433;databaseName=eurekabank";
+  private static final String  USER = "gustavo";
+  private static final String  PASSWORD = "coronel";
   
   private AccesoDB() {
   }
