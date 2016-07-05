@@ -2,6 +2,7 @@ package pe.egcc.eurekaapp.view;
 
 import pe.egcc.eurekaapp.controller.EmpleadoController;
 import pe.egcc.eurekaapp.domain.Empleado;
+import pe.egcc.eurekaapp.util.Eureka;
 import pe.egcc.eurekaapp.util.Memoria;
 import pe.egcc.eurekaapp.util.Mensaje;
 
@@ -24,6 +25,13 @@ public class EditarEmpleadoView extends javax.swing.JDialog {
     this.accion = accion;
     this.setTitle(accion + " EMPLEADO");
     lblTitulo.setText(accion + " EMPLEADO");
+    // Habilitar controles
+    txtPaterno.setEnabled(!accion.equals(Eureka.CRUD_ELIMINAR));
+    txtMaterno.setEnabled(!accion.equals(Eureka.CRUD_ELIMINAR));
+    txtNombre.setEnabled(!accion.equals(Eureka.CRUD_ELIMINAR));
+    txtDireccion.setEnabled(!accion.equals(Eureka.CRUD_ELIMINAR));
+    txtUsuario.setEnabled(!accion.equals(Eureka.CRUD_ELIMINAR));
+    txtCiudad.setEnabled(!accion.equals(Eureka.CRUD_ELIMINAR));
   }
 
   public void setBean(Empleado bean) {
@@ -74,13 +82,25 @@ public class EditarEmpleadoView extends javax.swing.JDialog {
 
     jLabel3.setText("Paterno:");
 
+    txtPaterno.setDisabledTextColor(new java.awt.Color(0, 102, 102));
+
+    txtMaterno.setDisabledTextColor(new java.awt.Color(0, 102, 102));
+
     jLabel4.setText("Materno:");
+
+    txtNombre.setDisabledTextColor(new java.awt.Color(0, 102, 102));
 
     jLabel5.setText("Nombre:");
 
     jLabel6.setText("Ciudad:");
 
+    txtCiudad.setDisabledTextColor(new java.awt.Color(0, 102, 102));
+
     jLabel7.setText("Dirección:");
+
+    txtDireccion.setDisabledTextColor(new java.awt.Color(0, 102, 102));
+
+    txtUsuario.setDisabledTextColor(new java.awt.Color(0, 102, 102));
 
     jLabel8.setText("Usuario:");
 

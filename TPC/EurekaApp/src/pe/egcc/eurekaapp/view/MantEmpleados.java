@@ -1,5 +1,6 @@
 package pe.egcc.eurekaapp.view;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -167,14 +168,14 @@ public class MantEmpleados extends javax.swing.JInternalFrame {
 
       },
       new String [] {
-        "CODIG", "PATERNO", "MATERNO", "NOMBRE"
+        "CODIG", "PATERNO", "MATERNO", "NOMBRE", "DIRECCIÓN", "CIUDAD", "USUARIO"
       }
     ) {
       Class[] types = new Class [] {
-        java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+        java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
       };
       boolean[] canEdit = new boolean [] {
-        false, false, false, false
+        false, false, false, false, false, false, false
       };
 
       public Class getColumnClass(int columnIndex) {
@@ -256,12 +257,16 @@ public class MantEmpleados extends javax.swing.JInternalFrame {
     view.setAccion(Eureka.CRUD_NUEVO);
     view.setBean(bean);
     view.setVisible(true);
-    if( Memoria.get("bean") == null ){
+    if( Memoria.get("bean") == null ){ // Se hizo click en el botón cancelar.
       return;
     }
     bean = (Empleado) Memoria.get("bean");
+    if(lista == null){
+      lista = new ArrayList<>();
+    }
     lista.add(0, bean);
     mostrarLista();
+    tablaDatos.setRowSelectionInterval(0, 0);
   }//GEN-LAST:event_btnNuevoActionPerformed
 
   private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -275,6 +280,18 @@ public class MantEmpleados extends javax.swing.JInternalFrame {
     view.setAccion(Eureka.CRUD_EDITAR);
     view.setBean(bean);
     view.setVisible(true);
+    if( Memoria.get("bean") == null ){ // Se hizo click en el botón cancelar.
+      return;
+    }
+    bean = (Empleado) Memoria.get("bean");
+    lista.set(fila, bean);
+    // Modificar fila
+    tablaDatos.setValueAt(bean.getPaterno(), fila, 1);
+    tablaDatos.setValueAt(bean.getMaterno(), fila, 2);
+    tablaDatos.setValueAt(bean.getNombre(), fila, 3);
+    tablaDatos.setValueAt(bean.getDireccion(), fila, 4);
+    tablaDatos.setValueAt(bean.getCiudad(), fila, 5);
+    tablaDatos.setValueAt(bean.getUsuario(), fila, 6);
   }//GEN-LAST:event_btnEditarActionPerformed
 
   private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -288,6 +305,11 @@ public class MantEmpleados extends javax.swing.JInternalFrame {
     view.setAccion(Eureka.CRUD_ELIMINAR);
     view.setBean(bean);
     view.setVisible(true);
+    if( Memoria.get("bean") == null ){ // Se hizo click en el botón cancelar.
+      return;
+    }
+    lista.remove(fila);
+    mostrarLista();
   }//GEN-LAST:event_btnEliminarActionPerformed
 
 
@@ -324,7 +346,9 @@ public class MantEmpleados extends javax.swing.JInternalFrame {
     tabla.setRowCount(0);
     // LLenando la tabla con datos
     for (Empleado bean : lista) {
-      Object[] rowData = {bean.getCodigo(), bean.getPaterno(), bean.getMaterno(), bean.getNombre()};
+      Object[] rowData = {bean.getCodigo(), bean.getPaterno(), 
+        bean.getMaterno(), bean.getNombre(),bean.getDireccion(),
+        bean.getCiudad(), bean.getUsuario()};
       tabla.addRow(rowData);
     }
   }

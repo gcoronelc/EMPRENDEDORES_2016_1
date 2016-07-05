@@ -31,6 +31,7 @@ public class FormularioMDI extends javax.swing.JFrame {
     menuArchivo = new javax.swing.JMenu();
     menuArchivoSalir = new javax.swing.JMenuItem();
     menuProceso = new javax.swing.JMenu();
+    menuProcesoDeposito = new javax.swing.JMenuItem();
     menuTabla = new javax.swing.JMenu();
     menuTablaClientes = new javax.swing.JMenuItem();
     menuTablaSucursales = new javax.swing.JMenuItem();
@@ -56,6 +57,15 @@ public class FormularioMDI extends javax.swing.JFrame {
     menuBar.add(menuArchivo);
 
     menuProceso.setText("Proceso");
+
+    menuProcesoDeposito.setText("Deposito");
+    menuProcesoDeposito.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        menuProcesoDepositoActionPerformed(evt);
+      }
+    });
+    menuProceso.add(menuProcesoDeposito);
+
     menuBar.add(menuProceso);
 
     menuTabla.setText("Tabla");
@@ -130,6 +140,10 @@ public class FormularioMDI extends javax.swing.JFrame {
     cargarFormulario(MantEmpleados.class);
   }//GEN-LAST:event_menuTablaEmpleadosActionPerformed
 
+  private void menuProcesoDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProcesoDepositoActionPerformed
+    cargarFormulario(RegDepositoView.class);
+  }//GEN-LAST:event_menuProcesoDepositoActionPerformed
+
   /**
    * @param args the command line arguments
    */
@@ -173,6 +187,7 @@ public class FormularioMDI extends javax.swing.JFrame {
   private javax.swing.JMenuBar menuBar;
   private javax.swing.JMenu menuConsulta;
   private javax.swing.JMenu menuProceso;
+  private javax.swing.JMenuItem menuProcesoDeposito;
   private javax.swing.JMenu menuReporte;
   private javax.swing.JMenu menuTabla;
   private javax.swing.JMenuItem menuTablaClientes;

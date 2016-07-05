@@ -21,6 +21,12 @@ public class EmpleadoServiceImpl implements EmpleadoServiceEspec {
           + "chr_emplcodigo,vch_emplpaterno,vch_emplmaterno,"
           + "vch_emplnombre,vch_emplciudad,vch_empldireccion,"
           + "vch_emplusuario,vch_emplclave) values(?,?,?,?,?,?,?,?)";
+  private final String SQL_UPDATE = "update empleado set vch_emplpaterno = ?, "
+          + "vch_emplmaterno = ?, vch_emplnombre = ?, vch_emplciudad = ?,"
+          + "vch_empldireccion = ?, vch_emplusuario = ? "
+          + "where chr_emplcodigo = ?  ";
+  private final String SQL_DELETE = "delete from empleado "
+          + "where chr_emplcodigo = ?  ";
 
   @Override
   public Empleado validar(String usuario, String clave) {
@@ -73,7 +79,7 @@ public class EmpleadoServiceImpl implements EmpleadoServiceEspec {
       // Leer contador
       String sql = "select int_contitem, int_contlongitud "
               + "from contador "
-              //+ "WITH (XLOCK, ROWLOCK, HOLDLOCK) "
+              + "WITH (XLOCK, ROWLOCK, HOLDLOCK) "
               + "where vch_conttabla = 'Empleado' ";
       PreparedStatement pstm = cn.prepareStatement(sql);
       ResultSet rs = pstm.executeQuery();
@@ -85,7 +91,6 @@ public class EmpleadoServiceImpl implements EmpleadoServiceEspec {
       rs.close();
       pstm.close();
       // Actualizar tabla
-      Thread.currentThread().sleep(2000);
       cont++;
       sql = "update contador set int_contitem = ? "
               + "where vch_conttabla = 'Empleado'";
@@ -130,12 +135,103 @@ public class EmpleadoServiceImpl implements EmpleadoServiceEspec {
 
   @Override
   public void actualizar(Empleado bean) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Connection cn = null;
+    try {
+      cn = AccesoDB.getConnection();
+      // Iniciar la Tx
+      cn.setAutoCommit(false);
+      // Proceso
+      PreparedStatement pstm = cn.prepareStatement(SQL_UPDATE);
+      pstm.setString(1, bean.getPaterno());
+      pstm.setString(2, bean.getMaterno());
+      pstm.setString(3, bean.getNombre());
+      pstm.setString(4, bean.getCiudad());
+      pstm.setString(5, bean.getDireccion());
+      pstm.setString(6, bean.getUsuario());
+      pstm.setString(7, bean.getCodigo());
+      pstm.executeUpdate();
+      pstm.close();
+      // Confirmar la Tx
+      cn.commit();
+    } catch (Exception e) {
+      try {
+        cn.rollback();
+      } catch (Exception e1) {
+      }
+      String texto = "Error en proceso.";
+      if (e != null && !e.getMessage().isEmpty()) {
+        texto += "\n" + e.getMessage();
+      }
+      throw new RuntimeException(texto);
+    } finally {
+      try {
+        cn.close();
+      } catch (Exception e) {
+      }
+    }
   }
 
   @Override
   public void eliminar(String codigo) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Connection cn = null;
+    try {
+      cn = AccesoDB.getConnection();
+      // Iniciar la Tx
+      cn.setAutoCommit(false);
+      // Verificar si tiene registros en tabla ASIGNADO
+      String sql = "select count(*) cont from asignado where chr_emplcodigo = ?";
+      PreparedStatement pstm = cn.prepareStatement(sql);
+      pstm.setString(1, codigo);
+      ResultSet rs = pstm.executeQuery();
+      rs.next();
+      int contAsig = rs.getInt("cont");
+      rs.close();
+      pstm.close();
+      // Verificar si tiene registros en tabla CUENTA
+      sql = "select count(*) cont from cuenta where chr_emplcreacuenta = ?";
+      pstm = cn.prepareStatement(sql);
+      pstm.setString(1, codigo);
+      rs = pstm.executeQuery();
+      rs.next();
+      int contCuen = rs.getInt("cont");
+      rs.close();
+      pstm.close();
+      // Verificar si tiene registros en tabla MOVIMIENTO
+      sql = "select count(*) cont from movimiento where chr_emplcodigo = ?";
+      pstm = cn.prepareStatement(sql);
+      pstm.setString(1, codigo);
+      rs = pstm.executeQuery();
+      rs.next();
+      int contMovi = rs.getInt("cont");
+      rs.close();
+      pstm.close();
+      // Verificación
+      if(contAsig > 0 || contCuen > 0 || contMovi > 0){
+        throw new Exception("Error, empleado tiene registros relacionados, no es posible eliminarlo.");
+      }
+      // Proceso de eliminación
+      pstm = cn.prepareStatement(SQL_DELETE);
+      pstm.setString(1, codigo);
+      pstm.executeUpdate();
+      pstm.close();
+      // Confirmar la Tx
+      cn.commit();
+    } catch (Exception e) {
+      try {
+        cn.rollback();
+      } catch (Exception e1) {
+      }
+      String texto = "Error en proceso.";
+      if (e != null && !e.getMessage().isEmpty()) {
+        texto += "\n" + e.getMessage();
+      }
+      throw new RuntimeException(texto);
+    } finally {
+      try {
+        cn.close();
+      } catch (Exception e) {
+      }
+    }
   }
 
   @Override
