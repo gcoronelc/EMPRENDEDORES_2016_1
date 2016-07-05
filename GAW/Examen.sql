@@ -1,9 +1,14 @@
 update asignado set dtt_asigfechabaja = sysdate()
 where chr_asigcodigo = '000008';
 
+
+$codigo = str_pad($cont,$size,"0",STR_PAD_LEFT);
+
+
 insert into asignado(chr_asigcodigo,chr_sucucodigo,
 chr_emplcodigo,dtt_asigfechaalta)
-values('000012','004','0008',DATE_ADD(sysdate(), INTERVAL 1 DAY));
+values('$codigo','004','0008',DATE_ADD(sysdate(), INTERVAL 1 DAY));
+
 
 select vch_monedescripcion MONEDA,
 sum(case when tm.vch_tipoaccion = 'INGRESO' 
@@ -15,3 +20,5 @@ join cuenta c on mon.chr_monecodigo = c.chr_monecodigo
 join movimiento mov on c.chr_cuencodigo = mov.chr_cuencodigo
 join tipomovimiento tm on mov.chr_tipocodigo = tm.chr_tipocodigo
 group by mon.vch_monedescripcion;
+
+
