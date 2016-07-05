@@ -7,6 +7,9 @@
   <body>
     <h3>APERTURAR CUENTA</h3>
     <form id="form1">
+      
+      
+      
       <input type="button" id="btnConsultar" value="Procesar" />
     </form>
     <br/>
